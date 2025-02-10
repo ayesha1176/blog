@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Card, CardContent } from '../components/ui/card';
-import { Input } from '../components/ui/input'; // Adjusted for correct input component
-import { Button } from '../components/ui/button'; // Correct Button import
-import { comment } from "postcss";
+import { Card, CardContent } from "../components/ui/card";
+import { Input } from "../components/ui/input"; // Adjusted for correct input component
+import { Button } from "../components/ui/button"; // Correct Button import
 
 interface Comment {
   id: string;
@@ -14,10 +13,10 @@ interface CommentSectionProps {
   postId: string;
 }
 
-export default function CommentSection({ postId }: CommentSectionProps) {
+export default function CommentSection({ postId }: CommentSectionProps) { // ✅ Fixed props
   const [comments, setComments] = useState<Comment[]>([]);
-  const [newComment, setNewComment] = useState('');
-  const [authorName, setAuthorName] = useState('');
+  const [newComment, setNewComment] = useState("");
+  const [authorName, setAuthorName] = useState("");
   const [editingCommentId, setEditingCommentId] = useState<string | null>(null);
 
   const handleAddComment = () => {
@@ -28,8 +27,8 @@ export default function CommentSection({ postId }: CommentSectionProps) {
         text: newComment,
       };
       setComments([...comments, newCommentObj]);
-      setNewComment('');
-      setAuthorName('');
+      setNewComment("");
+      setAuthorName("");
     }
   };
 
@@ -46,12 +45,12 @@ export default function CommentSection({ postId }: CommentSectionProps) {
     if (newComment.trim() && authorName.trim() && editingCommentId) {
       const updatedComments = comments.map((comment) =>
         comment.id === editingCommentId
-          ? { ...comment, text: newComment, author: authorName } // Fixed typo 'authore' to 'author'
+          ? { ...comment, text: newComment, author: authorName }
           : comment
       );
       setComments(updatedComments);
-      setNewComment('');
-      setAuthorName('');
+      setNewComment("");
+      setAuthorName("");
       setEditingCommentId(null);
     }
   };
@@ -67,7 +66,7 @@ export default function CommentSection({ postId }: CommentSectionProps) {
                 <div className="font-semibold">{comment.author}</div>
                 <p>{comment.text}</p>
                 <Button
-                  onClick={() => handleEditComment(comment.id)} // Changed 'onclick' to 'onClick'
+                  onClick={() => handleEditComment(comment.id)} // ✅ Fixed 'onClick'
                   className="mt-2 text-blue-500"
                 >
                   Edit
@@ -98,13 +97,14 @@ export default function CommentSection({ postId }: CommentSectionProps) {
         />
 
         <Button
-          onClick={editingCommentId ? handleSaveEditedComment : handleAddComment} // Changed 'onclick' to 'onClick'
+          onClick={editingCommentId ? handleSaveEditedComment : handleAddComment} // ✅ Fixed 'onClick'
           className="mt-4"
         >
-          {editingCommentId ? 'Save' : 'Submit'} // Corrected button text display
+          {editingCommentId ? "Save" : "Submit"}
         </Button>
       </div>
     </div>
   );
 }
+
 
