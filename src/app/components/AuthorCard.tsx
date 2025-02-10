@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-"use client";
+
 
 import Image from "next/image";
 
