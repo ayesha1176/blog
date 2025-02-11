@@ -13,7 +13,7 @@ interface CommentSectionProps {
   _postId: string; // Fixed unused variable warning
 }
 
-export default function CommentSection({ _postId }: CommentSectionProps) { // ✅ Fixed props
+export default function CommentSection({ }: CommentSectionProps) { // ✅ Fixed props
   const [comments, setComments] = useState<Comment[]>([]);
   const [newComment, setNewComment] = useState("");
   const [authorName, setAuthorName] = useState("");
