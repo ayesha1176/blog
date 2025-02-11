@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function Feature() { // ✅ Function name capitalized
+export default function Feature() {
   return (
-    <div>
+    <>
       <section className="py-8 bg-neutral-100 mb-40">
         <h2
           className="text-center text-3xl font-bold md:text-5xl lg:text-left animate-fade-in-up transition-all duration-500 ease-in-out
@@ -14,7 +14,7 @@ export default function Feature() { // ✅ Function name capitalized
           The world of technology is like an endless ocean, filled with secrets
           waiting to be discovered. Every day brings a new innovation, every
           moment a new breakthrough. My journey is all about uncovering these
-          secrets and sharing them with you. Let's explore this fascinating
+          secrets and sharing them with you. Let&apos;s explore this fascinating
           world together!
         </p>
         <div className="mx-auto max-w-7xl px-5">
@@ -30,9 +30,9 @@ export default function Feature() { // ✅ Function name capitalized
               "Virtual Reality",
               "Next.js",
               "Web Development",
-            ].map((category, index) => (
+            ].map((category) => (
               <div
-                key={index}
+                key={category}
                 className="relative group p-6 bg-white rounded-lg shadow-lg hover:bg-sky-300 hover:text-black transition duration-300 ease-in-out transform hover:scale-105 cursor-pointer flex items-center justify-center text-neutral-600"
               >
                 <p className="text-center text-lg font-semibold">{category}</p>
@@ -49,12 +49,12 @@ export default function Feature() { // ✅ Function name capitalized
           role in modern development. The immersive experiences of Virtual
           Reality (VR) are redefining how we perceive digital spaces, while
           frameworks like Next.js are enhancing the efficiency of web
-          applications. Whether you're a beginner or an expert, Web Development
-          remains at the core of building the future. Join us as we dive deep
-          into these fascinating fields and uncover the secrets of the digital
-          era!
+          applications. Whether you&apos;re a beginner or an expert, Web
+          Development remains at the core of building the future. Join us as we
+          dive deep into these fascinating fields and uncover the secrets of the
+          digital era!
         </p>
       </section>
-    </div>
+    </>
   );
 }

@@ -7,7 +7,15 @@ import React from "react";
 import CommentSection from "@/app/components/commentSection";
 import AuthorCard from "@/app/components/AuthorCard";
 
-const posts = [
+interface Post {
+  id: string;
+  title: string;
+  image: string;
+  description: string;
+  date: string;
+}
+
+const posts: Post[] = [
   {
     id: "1",
     title: "Mastering Metaverse",
@@ -52,12 +60,12 @@ const posts = [
 
 export default function PostPage() {
   const params = useParams();
-  const [post, setPost] = useState<any>(null);
+  const [post, setPost] = useState<Post | null>(null);
 
   useEffect(() => {
     if (params?.id) {
-      const foundPost = posts.find((p) => p.id === params.id);
-      setPost(foundPost || null);
+      const foundPost = posts.find((p) => p.id === params.id) || null;
+      setPost(foundPost);
     }
   }, [params]);
 
@@ -100,7 +108,7 @@ export default function PostPage() {
         </p>
       )}
 
-      <CommentSection postId={post.id} />
+      <CommentSection _postId={post.id} />
       <AuthorCard />
     </div>
   );
