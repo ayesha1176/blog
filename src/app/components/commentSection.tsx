@@ -10,10 +10,10 @@ interface Comment {
 }
 
 interface CommentSectionProps {
-  postId: string;
+  _postId: string; // Fixed unused variable warning
 }
 
-export default function CommentSection({ postId }: CommentSectionProps) { // ✅ Fixed props
+export default function CommentSection({ _postId }: CommentSectionProps) { // ✅ Fixed props
   const [comments, setComments] = useState<Comment[]>([]);
   const [newComment, setNewComment] = useState("");
   const [authorName, setAuthorName] = useState("");
@@ -106,5 +106,3 @@ export default function CommentSection({ postId }: CommentSectionProps) { // ✅
     </div>
   );
 }
-
-
